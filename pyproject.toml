@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "lfm3-npu"
+version = "0.3.0"
+description = "Local OpenAI-compatible server for OpenVINO GenAI models (primarily on Intel NPU)"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi>=0.115,<1",
+    "huggingface-hub>=0.34,<2",
+    "openvino-genai==2026.4.1.0",
+    "pydantic>=2.10,<3",
+    "transformers==5.20.0",
+    "uvicorn[standard]>=0.34,<1",
+    "optimum-intel>=2.0.0",
+]
+
+[tool.uv.sources]
+optimum-intel = { git = "https://github.com/rkazants/optimum-intel.git", rev = "lfm3" }
+
+[tool.hatch.build.targets.wheel]
+packages = ["npu_server"]
+
+[tool.uv]
+package = true
+override-dependencies = [
+    "transformers==5.20.0",
+]
+
+[tool.ruff]
+line-length = 120
+show-fixes = true
+fix = false
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ['E', 'W', 'F', 'I']
+fixable = ['ALL']
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+
+[dependency-groups]
+dev = [
+    "pyrefly>=1.4.0",
+]
+

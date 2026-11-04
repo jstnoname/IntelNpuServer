@@ -1,0 +1,22 @@
+﻿{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "local": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Local OpenVINO NPU",
+      "options": {
+        "baseURL": "http://127.0.0.1:8000/v1",
+        "apiKey": "local"
+      },
+      "models": {
+        "model_name": {
+          "name": "displayed model name in OpenCode",
+          "limit": {
+            "context": 1024,
+            "output": 128
+          }
+        }
+      }
+    }
+  }
+}
