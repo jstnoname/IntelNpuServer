@@ -29,8 +29,13 @@ jobs:
       with:
         python-version: '3.12'
 
+    - name: Clear old local builds
+      run: rm -rf dist/
+
     - name: Build package
       run: uv build
 
     - name: Publish to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        skip-existing: true

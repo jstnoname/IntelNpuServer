@@ -3,7 +3,7 @@ requires = ["uv_build >= 0.13.6, <0.14.0"]
 build-backend = "uv_build"
 
 [project]
-name = "npu-server"
+name = "intel-npu-server"
 version = "0.3.0"
 description = "Local OpenAI-compatible server for OpenVINO GenAI models (primarily on Intel NPU)"
 readme = "README.md"
