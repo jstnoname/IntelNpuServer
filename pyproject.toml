@@ -56,5 +56,4 @@ line-ending = "auto"
 [dependency-groups]
 dev = [
     "pyrefly>=1.4.0",
-    "twine>=7.0.0",
 ]
